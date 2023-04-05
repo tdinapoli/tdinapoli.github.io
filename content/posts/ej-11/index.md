@@ -1,7 +1,7 @@
 ---
 title: "MEFE - Ejercicio 11, guía 1"
 date: 2023-04-03T18:40:14-03:00
-draft: true
+draft: false
 summary: "¿Cuál es la probabilidad de que no te toque el ancho de espadas en un partido de truco de 4 personas y 15 manos? ¿Y de que no salga en todo el partido?"
 author: ""
 math: true
