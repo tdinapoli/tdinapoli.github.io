@@ -18,9 +18,9 @@ params:
 menu:
   main:
   - name: sobre-mi
-    url: http://localhost:1313/about
+    url: /about/
     weight: 90
   - name: posts
-    url: http://localhost:1313/posts
+    url: /posts/
     weight: 100
 
