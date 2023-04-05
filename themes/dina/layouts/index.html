@@ -1,0 +1,18 @@
+{{ define "main" }}
+    {{- block "title" . -}}{{ end }}
+    <hr class="single-hr">
+    {{- block "content" . -}}{{ end }}
+    {{- partial "list-post/list-posts.html" . -}}
+{{ end }}
+
+{{ define "title" }}
+<div class="row ps-4 pt-4">
+    <h1>{{ .Params.title }}</h1>
+</div>
+{{ end }}
+
+{{ define "content" }}
+<div class="row justify-content-md-center p-4">
+    {{ .Content }}
+</div>
+{{ end }}

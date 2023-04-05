@@ -1,0 +1,9 @@
+<ul>
+    {{ range .Site.Menus.main }}
+    <li class="list-unstyled text-white">
+        <a href="{{ .URL }}" class="nav-link {{ if $.IsMenuCurrent "main" . }} active" aria-current="page {{ end }}">
+           ~/{{ .Name }}
+        </a>
+    </li>
+    {{ end }}
+</ul>

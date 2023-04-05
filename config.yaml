@@ -1,0 +1,26 @@
+baseURL: 'http://example.org/'
+languageCode: 'en-us'
+title: 'Bitácora'
+theme: 'dina'
+enableEmoji: true
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+params:
+  brandname: 'tdinapoli@bitacora'
+  mainsections:
+  - posts
+  bootstrap: 'legacy'
+
+menu:
+  main:
+  - name: sobre-mi
+    url: http://localhost:1313/about
+    weight: 90
+  - name: posts
+    url: http://localhost:1313/posts
+    weight: 100
+

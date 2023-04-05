@@ -1,0 +1,7 @@
+{{ if .Params.image }}
+    {{ $image := .Resources.GetMatch .Params.Image }}
+    <img src="{{ $image.RelPermalink }}" class="card-img img-fluid rounded-start" alt="image not loaded">
+{{ else }}
+    {{ $image := resources.Get "images/cardioid-ascii.png" }}
+    <img src="{{ $image.RelPermalink }}" class="card-img img-fluid rounded-start" alt="image not loaded">
+{{ end }}

@@ -1,0 +1,6 @@
+{{ $pages := where site.RegularPages "Type" "in" site.Params.mainsections }}
+{{ range $pages }}
+    <div class="row m-4">
+        {{- partial "list-post/box/box.html" . -}}
+    </div>
+{{ end }}

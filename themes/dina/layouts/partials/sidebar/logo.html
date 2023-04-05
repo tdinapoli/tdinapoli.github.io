@@ -1,0 +1,6 @@
+<div class="container">
+{{ $image := resources.Get "/images/cardioid-ascii.png" }}
+<a href="{{ .Site.BaseURL }}">
+<img src="{{ $image.RelPermalink }}" alt="cardioid-ascii" class="img-fluid">
+</a>
+</div>
