@@ -5,8 +5,9 @@
     <div class="container-fluid">
         <div class="row">
             {{- partial "sidebar/responsive-sidebar.html" . -}}
-            <div id="content" class="col-12 col-md-6 offset-md-3 vh-100">
+            <div id="content" class="col-12 col-md-6 offset-md-3 d-flex flex-column min-vh-100">
                 {{- block "main" . -}}{{- end -}}
+                {{- block "blank-ending" . -}}{{- end -}}
             </div>
             <div id="blank-space" class="col-md-3 d-none d-md-block blank d-flex flex-column">
             </div>
@@ -14,3 +15,7 @@
     </div>
   </body>
 </html>
+
+{{ define "blank-ending"}}
+  <div class="row flex-grow-1"></div>
+{{ end }}
