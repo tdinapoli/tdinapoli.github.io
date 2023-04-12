@@ -5,7 +5,7 @@ draft: false
 summary: "¿Cuál es la probabilidad de que no te toque el ancho de espadas en un partido de truco de 4 personas y 15 manos? ¿Y de que no salga en todo el partido?"
 author: ""
 math: true
-image: "truco-matematicos.png"
+image: "truco-matematicos_256x256.png"
 ---
 
 # 11)
