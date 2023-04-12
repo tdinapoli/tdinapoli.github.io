@@ -5,9 +5,9 @@ draft: false
 summary: ""
 ---
 
-Soy un estudiante de física de la Facultad de Ciencias Exactas y Naturales de la Universidad de Buenos Aires. Además de la física, me gusta mucho aprender sobre computación y la programación. Actualmente estoy trabajando en la Comisión Nacional de Energía Atómica como técnico de redes de datos.
+Soy un estudiante de física de la Facultad de Ciencias Exactas y Naturales de la Universidad de Buenos Aires. Además de la física, me gusta mucho aprender sobre computación y programación. Actualmente estoy trabajando en la Comisión Nacional de Energía Atómica como técnico de redes de datos.
 
-Hasta que no termine de configurar el sitio, acá estan mis redes y contacto:
+Hasta que termine de configurar el sitio, acá estarán mis redes y contacto:
 
 - Github: [github.com/tdinapoli/](https://www.github.com/tdinapoli/)
 - Instagram: [instagram.com/tomasdina/](https://www.instagram.com/tomasdina/)
