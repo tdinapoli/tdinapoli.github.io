@@ -1,3 +1,4 @@
 .hugo_build.lock
 public/
 .ignored
+*1024x1024.png
