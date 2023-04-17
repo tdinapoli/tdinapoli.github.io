@@ -1,7 +1,7 @@
 ---
 title: "MEFE - Ejercicio 9, Guía 2"
 date: 2023-04-17T09:25:31-03:00
-draft: true
+draft: false
 summary: ""
 author: ""
 math: true
@@ -23,11 +23,11 @@ Una fabrica produce integrados, de los cuales el 20% son defectuosos y los comer
 <br></br>
 
 ### a) ¿Qué fracción de las cajas tendrán más de 2 chips defectuosos? [Rta: 0.322]
-Para armar las cajas, fabricante toma uno de sus integrados y lo mete adentro. Luego otro, y lo vuelve a meter en la caja. Si cada caja tiene $N$ integrados, repite esta acción $N$ veces. Con un 20% de chances, cada integrado que agarre el fabricante al armar la caja será defectuoso ($\overline{B}$), y por lo tanto con un 80% de chances, será bueno ($B$).
+Para armar las cajas, el fabricante toma uno de sus integrados y lo mete adentro. Luego otro, y lo vuelve a meter en la caja. Si cada caja tiene $N$ integrados, repite esta acción $N$ veces. Con un 20% de chances, cada integrado que agarre el fabricante al armar la caja será defectuoso ($\overline{B}$), y por lo tanto con un 80% de chances, será bueno ($B$).
 
 
 
-Entonces la probabilidad de tomar, por ejemplo, 10 integrados malos, es $p^{10}=0.2^{10}$, o 10 buenos sería $(1-p)^{10} = 0.8^{10}$. Pero en general, la probabilidad de sacar $n$ malos y $N-n$ buenos es $p^n (1-p)^{N-n}$. Da igual el orden en el que el fabricante ponga los integrados en la caja, al fin y al cabo la cantidad de integrados malos es la misma si agarró los malos primeros y los buenos después, o al revés. Por eso, hay que multiplicar por la cantidad de formas que hay de sacar $n$ malos y $N-n$ buenos, que es el combinatorio ${N \choose n}$. 
+Entonces la probabilidad de tomar, por ejemplo, 10 integrados malos, es $p^{10}=0.2^{10}$, o 10 buenos sería $(1-p)^{10} = 0.8^{10}$. Pero en general, la probabilidad de sacar $n$ malos y $N-n$ buenos es $p^n (1-p)^{N-n}$. Da igual el orden en el que el fabricante ponga los integrados en la caja, al fin y al cabo la cantidad de integrados malos es la misma si agarró los malos primero y los buenos después, o al revés. Por eso, hay que multiplicar por la cantidad de formas que hay de sacar $n$ malos y $N-n$ buenos, que es el combinatorio ${N \choose n}$. 
 
 En conclusión, la probabilidad de que una caja con $N$ integrados tenga $n$ malos dado que la probabilidad de poner uno malo en la caja es $p$ es
 
@@ -41,14 +41,15 @@ $$\sum_{n=3}^{n=10} {10 \choose n} 0.2^n 0.8^{10-n} = 0.322.$$
 
 Se puede chequear con código de dos formas:
 
-1. armando las cajas y contando cuántas tienen más de 2 integrados malos
+1. armando las cajas y contando cuántas tienen más de 2 integrados malos (experimental)
 
-1. haciendo lo mismo pero tomando los valores random directamente de una binomial
+1. haciendo lo mismo pero tomando los valores random directamente de una binomial (binomial)
 ```python
 import random
 import numpy as np
 import math
 
+# Defino la binomial
 def bin(N, n, p):
     return math.comb(N, n) * p**n * (1-p)**(N-n)
 
@@ -57,8 +58,6 @@ p = 0.2
 N = 10
 tolerancia_minima = 2
 n_cajas_compradas = 100000
-
-print("BIN", bin(N, 4, p))
 
 # Experimental
 cajas_compradas = np.array([[(random.random() < p)*1 for i in range(N)] for j in range(n_cajas_compradas)])
@@ -138,7 +137,7 @@ print(f"Proporcion de cajas en las que hay que testear todos:\n{subconjuntos_con
 
 ### c) ¿Cuál es la probabilidad de que haya 3 chips malos en una caja aceptada? [Rta: 0.0114]
 
-Nos piden la probabilidad de que haya 3 integrados malos en una caja aceptada. Esto es, dado que la caja **ya fue aceptada**, la probabilidad de que haya 3 integrados malos. Podemos decir que las cajas aceptadas pasaron el test ($+$) y que las cajas rechazadas no ($-$). Así, quedaría que la probabilidad de que haya 3 integrados malos en una caja aceptada es $P(3 \mid +)$, que es lo que nos estan preguntando. No sabemos calcular eso directamente, para calcularlo necesitamos usar el Teorema de Bayes:
+Nos piden la probabilidad de que haya 3 integrados malos en una caja aceptada. Esto es, dado que la caja **ya fue aceptada**, la probabilidad de que haya 3 integrados malos en ella. Podemos decir que las cajas aceptadas pasaron el test ($+$) y que las cajas rechazadas no ($-$). Así, quedaría que la probabilidad de que haya 3 integrados malos en una caja aceptada es $P(3 \mid +)$, que es lo que nos estan preguntando. No sabemos calcular eso directamente, para calcularlo necesitamos usar el Teorema de Bayes:
 
 
 
@@ -158,7 +157,7 @@ Acá, $P(3)$ se refiere a la probabilidad de que hayan salido 3 malos en la caja
 
 
 
-Sólo nos quedaría ver quién es $P(+)$. Es la probabilidad de que la caja sea aceptada. No sabemos calcularla directamente, pero sabemos calcular $P(+ \mid k)$ y $P(k)$ cuya suma es 
+Sólo nos quedaría ver quién es $P(+)$. Es la probabilidad de que la caja sea aceptada. No sabemos calcularla directamente, pero sabemos calcular $P(+ \mid k)$ y $P(k)$ que la suma sobre $k$ de su producto es 
 
 
 
@@ -174,7 +173,7 @@ Como dijimos antes al resolver el punto **b)**, para $k \geq 5$ todas las cajas 
 
 
 
-$$P(+ \mid k) = 0 \; \forall \; k \geq 5,$$
+$$P(+ \mid k) = 0 \\; \forall \\; k \geq 5,$$
 
 
 
@@ -182,7 +181,7 @@ es decir si hay más de 5 malos en la caja, la probabilidad de que sea aceptada 
 
 
 
-Otros dos casos particulares son $k=0$ y $k=1$, ya que si no hay ningún integrado malo entonces el test da (i) y es aceptado. Si hay uno, el test da (i) y es aceptado, o da (ii) y es aceptado luego de chequear que no hay ningún otro integrado en la caja. Por lo tanto, en todos los casos la probabilidad de que una caja sea aceptada dado que tiene 0 o 1 integrados malos es $P(+ \mid 0) = P(+ \mid 1) = 1.
+Otros dos casos particulares son $k=0$ y $k=1$, ya que si no hay ningún integrado malo entonces el test da (i) y es aceptado. Si hay uno, el test da (i) y es aceptado, o da (ii) y es aceptado luego de chequear que no hay ningún otro integrado en la caja. Por lo tanto, en todos los casos la probabilidad de que una caja sea aceptada dado que tiene 0 o 1 integrados malos es $P(+ \mid 0) = P(+ \mid 1) = 1$.
 
 
 
@@ -202,7 +201,7 @@ donde usé la hipergeométrica del punto **b)** para calcular la probabilidad de
 
 
 
-Ahora $P(+ \mid 3)$ y $P(+ \mid 4)$ son parecidos, en ambos casos, las cajas son aceptadas sólo si el test da (i). Esto quiere decir que podemos calcular las probabilidades con la hipergeométrica
+Ahora $P(+ \mid 3)$ y $P(+ \mid 4)$ son parecidos. En ambos casos, las cajas son aceptadas sólo si el test da (i). Esto quiere decir que podemos calcular las probabilidades con la hipergeométrica
 
 $$P(+ \mid 3) = H(0 \mid 6, 3, 10) = 0.0047$$
 $$P(+ \mid 4) = H(0 \mid 6, 4, 10) = 0.0333...$$
@@ -211,15 +210,9 @@ Ya tenemos todo para calcular
 
 $$\begin{align*} P(+) &= P(0) + P(1) + P(+ \mid 2)P(2) + P(+ \mid 3) P(3) + P(+ \mid 4) P(4) \\\\ &= 0.11 + 0.27 + 0.666... \times 0.3 + 0.0333... \times 0.2 + 0.0047 \times 0.088 \\\\ &= 0.587 \end{align*},$$
 
-y también ya calculamos el numerador de Bayes, por lo tanto el resultado queda
-
-
+y también, para calcular $P(+)$ tuvimos que calcular el numerador de Bayes, $P(+ \mid 3)P(3) = 0.00666...$ por lo tanto el resultado queda
 
 $$P(\text{3 malos en una caja aceptada}) = 0.0114.$$
-
-
-
-
 
 Podemos calcular esto numéricamente aplicando el test al conjunto de cajas que generamos antes:
 ```python
@@ -250,3 +243,4 @@ res = pad3 * p3 / pmas
 print(f"La probabilidad de que haya una caja aceptada con 3 integrados malos es:\n{res}")
 ```
 
+Esto quiere decir que el test tiene baja probabilidad de dar falso positivo. La probabilidad de equivocarnos al aceptar una caja es cercana al 1%. 
