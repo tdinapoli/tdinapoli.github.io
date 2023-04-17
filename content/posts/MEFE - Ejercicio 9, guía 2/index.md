@@ -1,7 +1,7 @@
 ---
 title: "MEFE - Ejercicio 9, Guía 2"
 date: 2023-04-17T09:25:31-03:00
-draft: false
+draft: true
 summary: ""
 author: ""
 math: true
