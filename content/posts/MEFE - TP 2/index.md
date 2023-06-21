@@ -1,7 +1,7 @@
 ---
 title: "MEFE - TP 2"
 date: 2023-06-21T20:20:25-03:00
-draft: true
+draft: false
 summary: ""
 author: ""
 math: true
