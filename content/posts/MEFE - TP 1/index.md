@@ -8,10 +8,6 @@ math: true
 image: "portada.png"
 ---
 
-# MEFE - TP computacional 1
-
-#### Tomás Di Napoli
-
 Este trabajo es la resolución del primer TP computacional de [MEFE](http://materias.df.uba.ar/meefea2023c1/), cuya consigna se puede ver [acá](http://materias.df.uba.ar/meefea2023c1/files/2023/04/Computacional1_MEFE2023.pdf). También tiene su versión en [Jupyter Notebook](https://colab.research.google.com/drive/1cy--G69O031nhcRVmJvtWlc4_ZoPo5qQ?usp=sharing) junto con otros ejercicios de la materia que estoy subiendo a [este](https://github.com/tdinapoli/mefe/) repositorio de github.
 
 **1)**
