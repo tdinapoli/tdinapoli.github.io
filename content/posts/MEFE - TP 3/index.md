@@ -141,7 +141,7 @@ Como las hipótesis que tenemos son ambas simples, podemos hacer uso del [*lema 
 
 
 
-$$R = \left\{ \mathbf{x} : \frac{\mathcal{L}( \mathbf{x} \mid \alpha_1)}{\mathcal{L}(\mathbf{x} \mid \alpha_0)} > k \right\},$$
+$$ R = \left\\{ \mathbf{x} : \frac{\mathcal{L}( \mathbf{x} \mid \alpha_1)}{\mathcal{L}(\mathbf{x} \mid \alpha_0)} > k \right\\} ,$$
 
 
 
